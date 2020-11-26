@@ -122,9 +122,7 @@ def delete_user(user_name=None):
 
 @app.route('/<user_name>/update')
 def update_user(user_name=None):
-
-    pass
-
+    return 'work in progress...'
 
 if __name__ == "__main__":
     db.create_all()
