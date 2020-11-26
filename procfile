@@ -1,1 +1,1 @@
-web: gunicorn app_name:module_name
+web: gunicorn app_name:twitter.py
