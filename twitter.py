@@ -10,9 +10,9 @@ from sklearn.linear_model import LogisticRegression
 import pickle 
 
 load_dotenv()
-
+DATABASE_URI = os.getenv("DATABASE_URI")
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///twitter.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -22,6 +22,7 @@ API_KEY = os.getenv("TWITTER_API_KEY")
 API_KEY_SECRET = os.getenv("TWITTER_API_KEY_SECRET")
 ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN")
 ACCESS_TOKEN_SECRET = os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
+
 
 auth = OAuthHandler(API_KEY, API_KEY_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
